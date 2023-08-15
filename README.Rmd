@@ -1,0 +1,63 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- Use `devtools::build_readme()` to build README.md -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# valgdata
+
+<!-- badges: start -->
+<!-- badges: end -->
+**English** | This package contains datasets from the last few parliamentary elections in Norway, as well as functions to visualise these. 
+
+**Norsk** | Denne pakken inneholder valgdata fra Stortingsvalgene fra 2013 og fram til i dag, og en rekke funksjoner for å visualisere disse.
+
+## Installering
+
+Du kan installere utviklingsversjonen av valgdata fra [GitHub](https://github.com/) med:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("emmaSkarstein/valgdata")
+```
+
+## Hvordan bruke pakken?
+
+Pakken inneholder funksjoner som er beregnet for å plotte valgdataen. For eksempel kan vi plotte valgoppslutningen i 2013 og 2021:
+
+```{r example}
+library(valgdata)
+library(dplyr)
+
+plot_valgoppslutning(c("2013", "2021"))
+```
+
+Det er også mulig å se på datasettene direkte:
+
+```{r}
+mandater
+```
+
+```{r}
+velgeroppslutning %>% tidyr::pivot_wider(names_from = aar, values_from = prosent)
+```
+
+```{r}
+partifarger
+```
+
+
+
+
+
+
