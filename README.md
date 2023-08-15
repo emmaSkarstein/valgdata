@@ -7,21 +7,29 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/emmaSkarstein/valgdata/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/emmaSkarstein/valgdata/actions/workflows/R-CMD-check.yaml)
-<!-- badges: end --> **English** \| This package contains datasets from
-the last few parliamentary elections in Norway, as well as functions to
-visualise these.
+<!-- badges: end -->
+
+**English** \| This package contains datasets from the last few
+parliamentary elections in Norway, as well as functions to visualise
+these.
 
 **Norsk** \| Denne pakken inneholder valgdata fra Stortingsvalgene fra
 2013 og fram til i dag, og en rekke funksjoner for å visualisere disse.
 
 ## Installering
 
-Du kan installere utviklingsversjonen av valgdata fra
+Du kan installere den seneste versjonen av {valgdata} fra
 [GitHub](https://github.com/) med:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("emmaSkarstein/valgdata")
+```
+
+Deretter kan du laste inn pakken slik:
+
+``` r
+library(valgdata)
 ```
 
 ## Hvordan bruke pakken?
@@ -30,17 +38,6 @@ Pakken inneholder funksjoner som er beregnet for å plotte valgdataen.
 For eksempel kan vi plotte valgoppslutningen i 2013 og 2021:
 
 ``` r
-library(valgdata)
-library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
-
 plot_valgoppslutning(c("2013", "2021"))
 ```
 
@@ -76,7 +73,7 @@ mandater
 ```
 
 ``` r
-velgeroppslutning %>% tidyr::pivot_wider(names_from = aar, values_from = prosent)
+velgeroppslutning |> tidyr::pivot_wider(names_from = aar, values_from = prosent)
 #> # A tibble: 10 × 4
 #>    parti                     `2013` `2017` `2021`
 #>    <fct>                      <dbl>  <dbl>  <dbl>
