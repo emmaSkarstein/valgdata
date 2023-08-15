@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 # valgdata
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/emmaSkarstein/valgdata/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/emmaSkarstein/valgdata/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 **English** | This package contains datasets from the last few parliamentary elections in Norway, as well as functions to visualise these. 
 

@@ -5,11 +5,11 @@
 # valgdata
 
 <!-- badges: start -->
-<!-- badges: end -->
 
-**English** \| This package contains datasets from the last few
-parliamentary elections in Norway, as well as functions to visualise
-these.
+[![R-CMD-check](https://github.com/emmaSkarstein/valgdata/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/emmaSkarstein/valgdata/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end --> **English** \| This package contains datasets from
+the last few parliamentary elections in Norway, as well as functions to
+visualise these.
 
 **Norsk** \| Denne pakken inneholder valgdata fra Stortingsvalgene fra
 2013 og fram til i dag, og en rekke funksjoner for å visualisere disse.
