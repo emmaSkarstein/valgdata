@@ -17,25 +17,33 @@ plot_valgoppslutning <- function(aarstall){
   col_bar <- "#191919"
 
   # Forbered dataen
-  valgdata::velgeroppslutning |>
-    dplyr::filter(.data$aar %in% aarstall) |>
-    dplyr::full_join(valgdata::partifarger, by = "parti") |>
-    dplyr::full_join(valgdata::akseposisjon, by = "parti") |>
-    dplyr::mutate(parti = forcats::fct_reorder(.data$parti, .data$aksepos)) |>
-    # Så plotter vi
-    ggplot2::ggplot(
+  ryddig_valgdata <- valgdata::velgeroppslutning %>%
+    dplyr::filter(.data$aar %in% aarstall)  %>%
+    dplyr::full_join(valgdata::partifarger, by = "parti") %>%
+    dplyr::full_join(valgdata::akseposisjon, by = "parti") %>%
+    dplyr::mutate(parti = forcats::fct_reorder(.data$parti, .data$aksepos))
+
+  # Så plotter vi
+  ggplot2::ggplot(ryddig_valgdata,
       # Parti på y-aksen, prosent på x-aksen
       aes(x = .data$prosent, y = .data$parti)) +
     ggplot2::geom_col(
       # Lag kolonner og farg dem basert på partiet
       aes(fill = I(.data$farge)), color = col_bar) +
     ggplot2::scale_x_continuous(
-      limits = c(0, 30),
+      # Juster x-aksen
+      #limits = c(0, 30),
       breaks = seq(0, 30, by = 5),
-      expand = c(0, 0), # The horizontal axis does not extend to either side
-      position = "top"  # Labels are located on the top
+      #expand = c(0, 0), # The horizontal axis does not extend to either side
+      #position = "top"  # Labels are located on the top
     ) +
-    ggplot2::scale_y_discrete(expand = ggplot2::expansion(add = c(0, 0.5))) +
+    ggplot2::scale_y_discrete(
+      # Juster y-aksen
+      expand = ggplot2::expansion(add = c(0, 0.5)),
+      limits = rev) +
+    ggplot2::facet_wrap(
+      # Splitt opp i flere plott basert på år
+      ggplot2::vars(.data$aar), dir = "v") +
     ggplot2::theme(
       # Remove y axis label
       axis.title.y = ggplot2::element_blank(),
