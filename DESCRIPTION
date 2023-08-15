@@ -1,17 +1,17 @@
 Package: valgdata
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Visualiser resultatene fra Stortingsvalg
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Emma Skarstein
+Maintainer: Emma Skarstein <emma@skarstein.no>
+Description: Pakken inneholder datasett og funksjoner for å visualisere resultatene fra Stortingsvalgene.
 License: MIT + file LICENSE
+Language: no
 Encoding: UTF-8
 LazyData: true
 Depends: 
     R (>= 2.10)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Imports: 
     dplyr,
     forcats,
